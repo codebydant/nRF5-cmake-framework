@@ -18,5 +18,5 @@ set(NRFJPROG "/home/imar-itt/Downloads/tool/nRF-Command-Line-Tools_10_5_0_Linux-
 #   message(FATAL_ERROR "the path to the tool nrfjprog must be specified on the command line (add -DNRFJPROG=<path>")
 # endif ()
 
-include("cmake-nRF5x/CMake_nRF5x.cmake")
+include("cmake/CMake_nRF5x.cmake")
 add_subdirectory(src)
