@@ -8,7 +8,7 @@ This is a CMake project to program a nRF52832 board using CMake, JLink programme
 	* SDK for nRF5: https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK/Download#infotabs
 	* Programmer: https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download#infotabs
 
-2. Create a folder in /opt to unzip files, e.g. /opt/nrf52
+2. Create a folder in /opt to unzip files, e.g. */opt/nrf52*
 3. Change lines 5,6 and 7 in the CMakeLists.txt at the root project with the path for each (toolchain,SDK and Programmer)
 	e.g. 
 
@@ -19,8 +19,8 @@ This is a CMake project to program a nRF52832 board using CMake, JLink programme
 5. Create a build folder
 6. Create compilation files with CMake:
 	
-	$ cd build/	
-	$ cmake ../	
+		$ cd build/	
+		$ cmake ../	
 
 	If everything is good, you should see something like this, e.g.
 
@@ -45,7 +45,8 @@ This is a CMake project to program a nRF52832 board using CMake, JLink programme
 		-- Build files have been written to: /home/imar-itt/Desktop/ses_test/build
 
 7. Compile with make:
-	$ make
+	
+		$ make
 
 	e.g.
 
