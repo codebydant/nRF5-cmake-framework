@@ -1,36 +1,54 @@
+ ##############################################################################
+# CMAKE CONFIGURATION
+##############################################################################
 cmake_minimum_required(VERSION 3.15)
 
-project(nrf52-cmake-example C CXX ASM)
+project(nrf52-cmake C CXX ASM)
 
-# You must set this variables with your own path
+# set build type = Debug mode
+set(CMAKE_BUILD_TYPE Release)
+
+message("\n" "=========================================")
+message("Project: ${PROJECT_NAME} ")
+message("=========================================")
 set(NRF_TARGET "nrf52")
-set(ARM_NONE_EABI_TOOLCHAIN_PATH "/home/imar-itt/Downloads/gcc-arm-none-eabi-9-2019-q4-major")
-set(NRF5_SDK_PATH "/home/imar-itt/Downloads/nRF5SDK160098a08e2")
-set(NRFJPROG "/home/imar-itt/Downloads/tool/nRF-Command-Line-Tools_10_5_0_Linux-amd64/nrfjprog/nrfjprog")
+set(NRF_SDH_BLE_ENABLED 1)
+set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_C_STANDARD 99)
 
-include("cmake/CMake_nRF5x.cmake")
+# You must set these variables with your own path
+set(ARM_NONE_EABI_TOOLCHAIN_PATH "/opt/SEGGER/GNU_Arm_Embedded_Toolchain") 	   # Path to root folder 
+set(NRF5_SDK_PATH "/opt/SEGGER/nRF5SDK")									   # Path to root folder
+set(NRFJPROG "/opt/SEGGER/NRFJPROG/nrfjprog/nrfjprog")						   # Path to .bin file
 
-# define some variables for this project
-include(${DIR_OF_nRF5x_CMAKE}/arm-gcc-toolchain.cmake)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
+include("${CMAKE_CURRENT_LIST_DIR}/cmake/nRF5x.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/cmake/arm-gcc-toolchain.cmake")
+
+##############################################################################
+# MACROS
+##############################################################################
 nRF5x_setup()
 add_definitions(-DCONFIG_GPIO_AS_PINRESET)
 
-# define include libraries 
-include_directories(
-        "${NRF5_SDK_PATH}/components/libraries/bsp"
-        "${NRF5_SDK_PATH}/components/libraries/button"
-        .
-)
-	
-list(APPEND SDK_SOURCE_FILES  
-        "${NRF5_SDK_PATH}/components/libraries/bsp"
-        "${NRF5_SDK_PATH}/components/libraries/button"
-)
+##############################################################################
+# CONFIG FILE: sdk_config.h
+##############################################################################
+include_directories("${CMAKE_SOURCE_DIR}/config")
 
-# source file
+##############################################################################
+# SOURCE CODE
+##############################################################################
 #list(APPEND SOURCE_FILES "src/main.c")
 list(APPEND SOURCE_FILES "src/main.cpp")
 
-# create executable file
+##############################################################################
+# EXECUTABLES
+##############################################################################
 nRF5x_addExecutable(${PROJECT_NAME} "${SOURCE_FILES}")
+
+message("=========================================")
+message("Project: ${PROJECT_NAME} COMPILED WITH CMAKE " ${CMAKE_VERSION})
+message("=========================================")
