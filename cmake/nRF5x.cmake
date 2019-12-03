@@ -110,8 +110,8 @@ macro(nRF5x_setup)
             "${NRF5_SDK_PATH}/components/boards/boards.c"
             "${NRF5_SDK_PATH}/components/softdevice/common/nrf_sdh.c"
             "${NRF5_SDK_PATH}/components/softdevice/common/nrf_sdh_soc.c"
-#            "${NRF5_SDK_PATH}/integration/nrfx/legacy/nrf_drv_clock.c"
-#            "${NRF5_SDK_PATH}/integration/nrfx/legacy/nrf_drv_uart.c"
+            "${NRF5_SDK_PATH}/integration/nrfx/legacy/nrf_drv_clock.c"
+            "${NRF5_SDK_PATH}/integration/nrfx/legacy/nrf_drv_uart.c"
             "${NRF5_SDK_PATH}/modules/nrfx/drivers/src/nrfx_clock.c"
             "${NRF5_SDK_PATH}/modules/nrfx/drivers/src/nrfx_gpiote.c"
             "${NRF5_SDK_PATH}/modules/nrfx/drivers/src/nrfx_uart.c"
@@ -243,6 +243,8 @@ macro(nRF5x_setup)
             "${NRF5_SDK_PATH}/components/nfc/t4t_parser/hl_detection_procedure"
             "${NRF5_SDK_PATH}/components/nfc/t4t_parser/tlv"
 
+            "${NRF5_SDK_PATH}/components/libraries/sensorsim"
+
     )
 
     list(APPEND SDK_SOURCE_FILES
@@ -319,6 +321,12 @@ macro(nRF5x_setup)
             # adds NFC library
             "${NRF5_SDK_PATH}/components/nfc"
 
+            "${NRF5_SDK_PATH}/components/libraries/sensorsim/sensorsim.c"
+
+            "${NRF5_SDK_PATH}/components/libraries/bsp/bsp_btn_ble.c"
+            "${NRF5_SDK_PATH}/components/libraries/bsp/bsp_btn_ant.c"
+            "${NRF5_SDK_PATH}/components/libraries/bsp/bsp_nfc.c"
+
             )
 
     # Segger RTT
@@ -345,25 +353,6 @@ macro(nRF5x_setup)
             "${NRF5_SDK_PATH}/external/fprintf/nrf_fprintf_format.c"
             )
 
-    if (${WITH_BLE_BTN})
-        list(APPEND SDK_SOURCE_FILES
-                "${NRF5_SDK_PATH}/components/libraries/bsp/bsp_btn_ble.c"
-                )
-    endif ()
-
-    if (${WITH_ANT_BTN})
-        list(APPEND SDK_SOURCE_FILES
-                "${NRF5_SDK_PATH}/components/libraries/bsp/bsp_btn_ant.c"
-                )
-    endif ()
-
-    if (${WITH_NFC})
-        list(APPEND SDK_SOURCE_FILES
-                "${NRF5_SDK_PATH}/components/libraries/bsp/bsp_nfc.c"
-                )
-    endif ()
-
-  
 
     # adds target for erasing and flashing the board with a softdevice
     add_custom_target(FLASH_SOFTDEVICE ALL

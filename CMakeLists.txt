@@ -38,8 +38,8 @@ include_directories("${CMAKE_SOURCE_DIR}/config")
 ##############################################################################
 # SOURCE CODE
 ##############################################################################
-#list(APPEND SOURCE_FILES "src/main.c")
-list(APPEND SOURCE_FILES "src/main.cpp")
+list(APPEND SOURCE_FILES "src/main.c")
+#list(APPEND SOURCE_FILES "src/main.cpp")
 
 ##############################################################################
 # EXECUTABLES

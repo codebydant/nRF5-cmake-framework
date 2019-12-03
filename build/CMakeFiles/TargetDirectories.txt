@@ -1,6 +1,0 @@
-/home/imar-itt/Downloads/nRF5x_cmake/build/CMakeFiles/rebuild_cache.dir
-/home/imar-itt/Downloads/nRF5x_cmake/build/CMakeFiles/edit_cache.dir
-/home/imar-itt/Downloads/nRF5x_cmake/build/CMakeFiles/nrf52-cmake.dir
-/home/imar-itt/Downloads/nRF5x_cmake/build/CMakeFiles/FLASH_SOFTDEVICE.dir
-/home/imar-itt/Downloads/nRF5x_cmake/build/CMakeFiles/FLASH_ERASE.dir
-/home/imar-itt/Downloads/nRF5x_cmake/build/CMakeFiles/FLASH_nrf52-cmake.dir
