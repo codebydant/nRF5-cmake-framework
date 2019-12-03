@@ -12,13 +12,13 @@ This is a CMake project to program a nRF52832 board using CMake, JLink programme
 The structure should be:
 
 		
-	- opt:
+		- opt:
 
-		- SEGGER:
+			- SEGGER:
 
-			- gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux	<-- Toolchain
-			- nRF5SDK160098a08e2								<-- SDK
-			- nRF-Command-Line-Tools_10_5_0_Linux-amd64			<-- Programmer
+				- gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux	<-- Toolchain
+				- nRF5SDK160098a08e2								<-- SDK
+				- nRF-Command-Line-Tools_10_5_0_Linux-amd64			<-- Programmer
 
 
 3. Download or clone this repo to a specific directory, e.g. */home/xXx/Downloads/nRF5-cmake-framework-master*
