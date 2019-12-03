@@ -17,7 +17,7 @@ The structure should be:
 			- SEGGER:
 
 				- gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux	<-- Toolchain
-				- nRF5SDK160098a08e2			<-- SDK
+				- nRF5SDK160098a08e2				<-- SDK
 				- nRF-Command-Line-Tools_10_5_0_Linux-amd64		<-- Programmer
 
 
