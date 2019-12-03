@@ -8,7 +8,7 @@ This is a CMake project to program a nRF52832 board using CMake, JLink programme
 	* SDK for nRF5: https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK/Download#infotabs
 	* Programmer: https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download#infotabs
 
-2. Create a folder in **/opt** to unzip files, e.g. */opt/SEGGER* <br\>
+2. Create a folder in **/opt** to unzip files, e.g. */opt/SEGGER*  <br/>
 The structure should be:
 
 		
@@ -22,7 +22,7 @@ The structure should be:
 
 
 3. Download or clone this repo to a specific directory, e.g. */home/xXx/Downloads/nRF5-cmake-framework-master*
-4. Create a *build* folder at the top level. <br\>
+4. Create a *build* folder at the top level. <br/>
 The structure should be:
 
 		- nRF5-cmake-framework-master:
@@ -39,7 +39,7 @@ The structure should be:
 				- README.md
 	
 
-5. Change lines **20**,**21** and **22** in the *CMakeLists.txt* at the top level with the path for each one(toolchain,SDK and Programmer in the step *2*)<br\>
+5. Change lines **20**,**21** and **22** in the *CMakeLists.txt* at the top level with the path for each one(toolchain,SDK and Programmer in the step *2*)<br/>
 	e.g. 
 
 		set(ARM_NONE_EABI_TOOLCHAIN_PATH "/opt/SEGGER/gcc-arm-none-eabi-9-2019-q4-major")
