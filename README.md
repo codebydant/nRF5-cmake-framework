@@ -8,16 +8,47 @@ This is a CMake project to program a nRF52832 board using CMake, JLink programme
 	* SDK for nRF5: https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK/Download#infotabs
 	* Programmer: https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download#infotabs
 
-2. Create a folder in /opt to unzip files, e.g. */opt/nrf52*
-3. Change lines 5,6 and 7 in the CMakeLists.txt at the root project with the path for each (toolchain,SDK and Programmer)
+2. Create a folder in **/opt** to unzip files, e.g. */opt/SEGGER* <br\>
+The structure should be:
+
+		
+		- opt:
+
+			- SEGGER:
+
+				- gcc-arm-none-eabi-9-2019-q4-major-x86_64-linux		<-- Toolchain
+				- nRF5SDK160098a08e2									<-- SDK
+				- nRF-Command-Line-Tools_10_5_0_Linux-amd64				<-- Programmer
+
+
+3. Download or clone this repo to a specific directory, e.g. */home/xXx/Downloads/nRF5-cmake-framework-master*
+4. Create a *build* folder at the top level. <br\>
+The structure should be:
+
+		- nRF5-cmake-framework-master:
+
+				- build:
+
+				- cmake:
+				- config:								
+				- RTT:									
+				- src:									
+
+				- CMakeLists.txt
+				- monitor.sh
+				- README.md
+	
+
+5. Change lines **20**,**21** and **22** in the *CMakeLists.txt* at the top level with the path for each one(toolchain,SDK and Programmer in the step *2*)<br\>
 	e.g. 
 
-		set(ARM_NONE_EABI_TOOLCHAIN_PATH "/opt/nrf52/gcc-arm-none-eabi-9-2019-q4-major")
-		set(NRF5_SDK_PATH "/opt/nrf52/nRF5SDK160098a08e2")
-		set(NRFJPROG "/opt/nrf52/nRF-Command-Line-Tools_10_5_0_Linux-amd64/nrfjprog/nrfjprog")
-4. Save it.
-5. Create a build folder
-6. Create compilation files with CMake:
+		set(ARM_NONE_EABI_TOOLCHAIN_PATH "/opt/SEGGER/gcc-arm-none-eabi-9-2019-q4-major")
+		set(NRF5_SDK_PATH "/opt/SEGGER/nRF5SDK160098a08e2")
+		set(NRFJPROG "/opt/SEGGER/nRF-Command-Line-Tools_10_5_0_Linux-amd64/nrfjprog/nrfjprog")
+
+6. Set the line **19** to use *nRF51* or *nRF52* board
+7. Save changes and close the CMakeLists.txt file.
+8. Create compilation files with CMake:
 	
 		$ cd build/	
 		$ cmake ../	
@@ -42,9 +73,9 @@ This is a CMake project to program a nRF52832 board using CMake, JLink programme
 		-- Detecting CXX compile features - done
 		-- Configuring done
 		-- Generating done
-		-- Build files have been written to: /home/imar-itt/Desktop/ses_test/build
+		-- Build files have been written to: /home/xXx/Downloads/nRF5-cmake-framework-master/build
 
-7. Compile with make:
+9. Compile with make:
 	
 		$ make
 
@@ -92,5 +123,12 @@ This is a CMake project to program a nRF52832 board using CMake, JLink programme
 		[100%] started JLink commands
 		[100%] Built target START_JLINK
 
+## How to use monitor
+To run the debugger and get the logs from the embedded software on the development computer you should run:
+	
+	$ ./monitor.sh     <-- shell script to open a terminal with the log output
 
+## Note:
+If you want to use the monitor for *nRF51* board you should edit the *monitor.sh* file:
 
+	gnome-terminal -e $PWD/RTT/runJLinkExe-nrf52  <-- This line with: nrf51

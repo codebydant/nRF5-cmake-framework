@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/opt/SEGGER/nRF5SDK/modules/nrfx/mdk/gcc_startup_nrf52.S
+startup_config.h
+/opt/SEGGER/nRF5SDK/modules/nrfx/mdk/startup_config.h
+

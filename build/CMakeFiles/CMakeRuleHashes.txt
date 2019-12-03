@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+c8051c2262ad173719a4bfbd4668bb14 CMakeFiles/FLASH_ERASE
+b6f5ef4bd0ba3b3be4b74a874108d8ef CMakeFiles/FLASH_SOFTDEVICE
+f0e93836d40e8a0c204a8a701af69e9d CMakeFiles/FLASH_nrf52-cmake
