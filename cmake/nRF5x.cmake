@@ -245,6 +245,9 @@ macro(nRF5x_setup)
 
             "${NRF5_SDK_PATH}/components/libraries/sensorsim"
 
+            "${NRF5_SDK_PATH}/components/ble/ble_services/eddystone"
+            "${NRF5_SDK_PATH}/components/ble/ble_services/ble_bas"
+
     )
 
     list(APPEND SDK_SOURCE_FILES
@@ -327,6 +330,9 @@ macro(nRF5x_setup)
             "${NRF5_SDK_PATH}/components/libraries/bsp/bsp_btn_ant.c"
             "${NRF5_SDK_PATH}/components/libraries/bsp/bsp_nfc.c"
 
+            #"${NRF5_SDK_PATH}/components/ble/ble_services/eddystone/es_battery_voltage.h"
+            "${NRF5_SDK_PATH}/components/ble/ble_services/ble_bas/ble_bas.c"
+
             )
 
     # Segger RTT
@@ -365,32 +371,7 @@ macro(nRF5x_setup)
     add_custom_target(FLASH_ERASE ALL
             COMMAND ${NRFJPROG} --eraseall -f ${NRF_TARGET}
             COMMENT "erasing flashing"
-            )
-
-    # if(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Darwin")
-    #     set(TERMINAL "open")
-    # elseif(${CMAKE_HOST_SYSTEM_NAME} STREQUAL "Windows")
-    #     set(TERMINAL "sh")
-    # else()
-    #     set(TERMINAL "gnome-terminal")
-    # endif()
-
-    # add_custom_target(START_JLINK ALL
-
-    # 	    COMMAND ${TERMINAL} -e "${CMAKE_SOURCE_DIR}/RTT/runJLinkGDBServer-${NRF_TARGET}"
-    # 	    #COMMAND sleep 2s
-    #        # COMMAND bash "${DIR_OF_nRF5x_CMAKE}/runJLinkGDBServer-${NRF_TARGET}"
-    #         #COMMAND ${TERMINAL}
-    #        #COMMAND sleep 2s 
-    #         #COMMAND bash "${DIR_OF_nRF5x_CMAKE}/runJLinkRTTClient"
-    #         #COMMAND bash "${DIR_OF_nRF5x_CMAKE}/runJLinkExe-${NRF_TARGET}"
-    #         #COMMAND sleep 2s
-    #         COMMAND ${TERMINAL} -e "${CMAKE_SOURCE_DIR}/RTT/runJLinkExe-${NRF_TARGET}"
-    #         COMMAND sleep 2s  
-    #         COMMAND ${TERMINAL} -e "${CMAKE_SOURCE_DIR}/RTT/runJLinkRTTClient"
-    #         #COMMAND bash "${DIR_OF_nRF5x_CMAKE}/runJLinkRTTClient"
-    #         COMMENT "started JLink commands"
-    #         )
+            )   
 
 endmacro(nRF5x_setup)
 
@@ -421,14 +402,3 @@ macro(nRF5x_addExecutable EXECUTABLE_NAME SOURCE_FILES)
 endmacro()
 
 
-
-# macro(nRF5x_addBLEService NAME)
-#     include_directories(
-#             "${NRF5_SDK_PATH}/components/ble/ble_services/${NAME}"
-#     )
-
-#     list(APPEND SDK_SOURCE_FILES
-#             "${NRF5_SDK_PATH}/components/ble/ble_services/${NAME}/${NAME}.c"
-#             )
-
-# endmacro(nRF5x_addBLEService)
