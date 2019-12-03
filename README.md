@@ -123,6 +123,12 @@ The structure should be:
 		[100%] started JLink commands
 		[100%] Built target START_JLINK
 
+## How to use it
+You can use this project to program your board using *C* or *C++*. Modify the main file with your own code.
+
+## How to define SDK libraries
+This project use all the headers from the SDK to compile, if you just want to use a specific library you can edit the *nRF5x.cmake* file on *cmake* folder at the top level and comment the lines from *95* to *364* to specify the libraries to use with your project.
+
 ## How to use monitor
 To run the debugger and get the logs from the embedded software on the development computer you should run:
 	
