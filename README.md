@@ -7,6 +7,10 @@ This is a CMake project to program a nRF52832 board using CMake, JLink programme
 	* toolchain gcc arm x86-64-linux: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
 	* SDK for nRF5: https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK/Download#infotabs
 	* Programmer: https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download#infotabs
+	
+Copy from SEGGER JLink *99-jlink.rules* to **/etc/udev/rules.d/99-jlink.rules** and then:
+
+	- sudo udevadm control --reload-rules && udevadm trigger
 
 2. Create a folder in **/opt** to unzip files, e.g. */opt/SEGGER*  <br/>
 The structure should be:
