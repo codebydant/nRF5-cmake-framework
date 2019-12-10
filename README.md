@@ -100,6 +100,21 @@ At the root folder run,
 		
 This assume that the JLink binaries are on */opt/SEGGER/JLink/* if not, you should modify the *runJLinkEXE-nrf52* on the *RTT* folder.
 
+## How to print
+Set these variables in your own code
+
+		NRF_LOG_INIT((void*)0);
+   		NRF_LOG_DEFAULT_BACKENDS_INIT();   
+    		NRF_LOG_PROCESS();              
+        	NRF_LOG_INFO("TEXT TO PRINT\n");
+        	NRF_LOG_FLUSH();
+		
+and set these definitions on *sdk_config.h*
+    
+   		NRF_LOG_BACKEND_RTT_ENABLED 	1
+		NRF_FPRINTF_ENABLED 		1
+		NRF_FPRINTF_DOUBLE_ENABLED	1
+
 ## How to add new SDK libraries
 You have to comment-uncomment these lines in order to include a SDK library in the *CMakeLists.txt* file.
 
