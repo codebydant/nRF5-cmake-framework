@@ -1,5 +1,5 @@
 # nRF5 CMake Framework
-This is a CMake project to program a nRF52832 board using CMake 3.16.0, JLink, NRFJProgrammer and NRF5 SDK 16.0. The CMake files are taken from: https://github.com/Polidea/cmake-nRF5x and https://github.com/JF002/nrf52-baseproject for reference.
+This is a CMake project to program a **nRF52832 board** using CMake 3.16.0, JLink, NRFJProgrammer and NRF5 SDK 16.0. The CMake files are taken from: https://github.com/Polidea/cmake-nRF5x and https://github.com/JF002/nrf52-baseproject for reference.
 
 ## How to compile
 1. Download:
