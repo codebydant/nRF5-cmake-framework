@@ -99,3 +99,6 @@ At the root folder run,
 		
 This assume that the JLink binaries are on */opt/SEGGER/JLink/* if not, you should modify the *runJLinkEXE-nrf52* on the *RTT* folder.
 
+## How to use as your own project
+Just modify the *main.c* file with your own code. In case you need especify more SDK libraries you have to modify the *nrF5x.cmake* file on the *cmake* folder.
+
