@@ -7,6 +7,7 @@ This is a CMake project to program a **nRF52832 board** using CMake 3.16.0, JLin
 	* gcc arm none eabi toolchain x86-64-linux: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
 	* SDK for the nRF52 16.0: https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK/Download#infotabs
 	* Programmer NRFJPROG: https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download#infotabs
+	* JLink: https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack
 
 2. Create a folder in /opt to unzip files, e.g. */opt/SEGGER/*
 3. Change lines **19**,**20**,**21** and **22** in the *CMakeLists.txt* file at the root project with the path for each one (toolchain,SDK and Programmer) and save it.
