@@ -35,7 +35,7 @@ int main(void)
            
             nrf_delay_ms(500);
         }
-        printf("yeah nene\n");
+        
         NRF_LOG_INFO("testing print CMAKE\n");
         NRF_LOG_FLUSH();
     }
