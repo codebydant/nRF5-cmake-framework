@@ -114,6 +114,8 @@ and set these definitions on *sdk_config.h*
    		NRF_LOG_BACKEND_RTT_ENABLED 	1
 		NRF_FPRINTF_ENABLED 		1
 		NRF_FPRINTF_DOUBLE_ENABLED	1
+		NRF_LOG_ENABLED 1
+		NRF_LOG_BACKEND_UART_BAUDRATE 115200
 
 ## How to add new SDK libraries
 You have to comment-uncomment these lines in order to include a SDK library in the *CMakeLists.txt* file.
