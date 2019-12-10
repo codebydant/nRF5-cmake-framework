@@ -17,7 +17,7 @@ set(CMAKE_C_STANDARD 99)
 
 # You must set these variables with your own path
 set(NRF_TARGET 						"nrf52"											)	# nrf51 or nrf52
-set(ARM_NONE_EABI_TOOLCHAIN_PATH 	"/opt/SEGGER/gcc-arm-none-eabi-9-2019-q4-major"	) 	# Path to root folder 
+set(ARM_NONE_EABI_TOOLCHAIN_PATH 	                "/opt/SEGGER/gcc-arm-none-eabi-9-2019-q4-major"	) 	# Path to root folder 
 set(NRF5_SDK_PATH 					"/opt/SEGGER/nRF5SDK"							)	# Path to root folder
 set(NRFJPROG 						"/opt/SEGGER/Toolchain/nrfjprog/nrfjprog"		)	# Path to .bin file
 #set(MERGE_HEX 						"/opt/SEGGER/Toolchain/mergehex/mergehex"		)
@@ -39,7 +39,7 @@ nRF5x_addAppTimer()
 nRF5x_addAppButton()
 nRF5x_addBSP(TRUE FALSE FALSE) # (btn atn_btn nfc)
 nRF5x_addBLEGATT()
-# nRF5x_addBLEService(ble_bas)
+nRF5x_addBLEService(ble_bas) #ble_ancs_c;ble_ans_c;ble_bas;ble_bas_c;ble_bps;ble_cscs...
 # nRF5x_addNFC()
 nRF5x_addAppFDS()
 nRF5x_addBLEPeerManager()
