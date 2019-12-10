@@ -101,6 +101,24 @@ At the root folder run,
 This assume that the JLink binaries are on */opt/SEGGER/JLink/* if not, you should modify the *runJLinkEXE-nrf52* on the *RTT* folder.
 
 ## How to add new SDK libraries
+You have to comment-uncomment these lines in order to include a SDK library in the *CMakeLists.txt* file.
+
+		nRF5x_setup()
+		# nRF5x_addAppScheduler()
+		# nRF5x_addAppFIFO()
+		nRF5x_addAppTimer()
+		# nRF5x_addAppUART()
+		nRF5x_addAppButton()
+		nRF5x_addBSP(TRUE FALSE FALSE) # (btn atn_btn nfc)
+		nRF5x_addBLEGATT()
+		# nRF5x_addBLEService(ble_bas)
+		# nRF5x_addNFC()
+		nRF5x_addAppFDS()
+		nRF5x_addBLEPeerManager()
+		# nRF5x_addBLEAdvertising()
+		# nRF5x_addAppFIFO()
+		
+or,
 
 		include_directories(
 			"${NRF5_SDK_PATH}/<library header directory path>"
