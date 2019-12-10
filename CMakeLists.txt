@@ -29,17 +29,22 @@ include("${CMAKE_CURRENT_LIST_DIR}/cmake/nRF5x.cmake")
 include("${CMAKE_CURRENT_LIST_DIR}/cmake/arm-gcc-toolchain.cmake")
 
 ##############################################################################
-# nRF5x setup
+# nRF5x standard setup
 ##############################################################################
 nRF5x_setup()
-nRF5x_addAppScheduler()
-nRF5x_addAppFIFO()
+# nRF5x_addAppScheduler()
+# nRF5x_addAppFIFO()
 nRF5x_addAppTimer()
-nRF5x_addAppUART()
+# nRF5x_addAppUART()
 nRF5x_addAppButton()
-nRF5x_addBSP(TRUE FALSE FALSE)
+nRF5x_addBSP(TRUE FALSE FALSE) # (btn atn_btn nfc)
 nRF5x_addBLEGATT()
-nRF5x_addBLEService(ble_bas)
+# nRF5x_addBLEService(ble_bas)
+# nRF5x_addNFC()
+nRF5x_addAppFDS()
+nRF5x_addBLEPeerManager()
+# nRF5x_addBLEAdvertising()
+# nRF5x_addAppFIFO()
 
 add_definitions(-DCONFIG_GPIO_AS_PINRESET)
 
@@ -63,6 +68,18 @@ add_custom_target(FLASH_SOFTDEVICE ALL
         COMMAND ${NRFJPROG} --reset -f ${NRF_TARGET}
         COMMENT "flashing SoftDevice"
         ) 
+
+##############################################################################
+# NEW SDK LIBRARIES 
+##############################################################################
+include_directories(
+                "${NRF5_SDK_PATH}/components/libraries/sensorsim"                
+        )
+
+        list(APPEND SDK_SOURCE_FILES
+                "${NRF5_SDK_PATH}/components/libraries/sensorsim/sensorsim.c"               
+                
+        )
 
 ##############################################################################
 # SOURCE CODE
