@@ -128,6 +128,16 @@ or,
 			"${NRF5_SDK_PATH}/<library source file path>"
 		)
 
+BLE SERVICES:
+
+		- ble_ancs_c
+		- ble_ans_c
+		- ble_bas
+		- ble_bas_c
+		- ble_bps
+		- ble_cscs
+		...
+
 ## How to use as your own project
 Just modify the *main.c* file with your own code. In case you need specify more SDK libraries you have to modify the *nrF5x.cmake* file on the *cmake* folder.
 
