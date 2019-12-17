@@ -1,7 +1,7 @@
 # nRF5 CMake Framework
 This is a CMake project to program a **nRF52832 board** using CMake 3.16.0, JLink, NRFJProgrammer and NRF5 SDK 16.0. The CMake files are taken from: https://github.com/Polidea/cmake-nRF5x and https://github.com/JF002/nrf52-baseproject for reference.
 
-## How to compile
+## How to compile and flash
 1. Download:
 	
 	* gcc arm none eabi toolchain x86-64-linux: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
@@ -45,7 +45,7 @@ This is a CMake project to program a **nRF52832 board** using CMake 3.16.0, JLin
 		-- Generating done
 		-- Build files have been written to: /home/xXx/Downloads/nRF5-cmake-framework-master/build
 
-5. Compile with make:
+5. Compile with make: (this will compile the source code "main.c" and flash the softdevice.hex and bin.hex to the board)
 	
 		$ make
 
