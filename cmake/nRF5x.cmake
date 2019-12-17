@@ -85,7 +85,7 @@ macro(nRF5x_setup)
 
     # compiler/assambler/linker flags
     set(CMAKE_C_FLAGS "${COMMON_FLAGS}")
-    set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0 -g3")
+    set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG}  -g3")
     set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O3")
     set(CMAKE_CXX_FLAGS "${COMMON_FLAGS}")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -g3")
@@ -203,6 +203,7 @@ macro(nRF5x_setup)
             "${NRF5_SDK_PATH}/components/libraries/util/app_error_handler_gcc.c"
             "${NRF5_SDK_PATH}/components/libraries/util/app_util_platform.c"
             "${NRF5_SDK_PATH}/components/libraries/util/sdk_mapped_flags.c"
+            "${NRF5_SDK_PATH}/components/libraries/queue/nrf_queue.c"
             "${NRF5_SDK_PATH}/components/libraries/log/src/nrf_log_backend_flash.c"
             "${NRF5_SDK_PATH}/components/libraries/log/src/nrf_log_backend_rtt.c"
             "${NRF5_SDK_PATH}/components/libraries/log/src/nrf_log_backend_serial.c"
@@ -266,7 +267,8 @@ macro(nRF5x_setup)
            "${NRF5_SDK_PATH}/components/ble/ble_services/ble_nus/ble_nus.c"
            "${NRF5_SDK_PATH}/components/ble/nrf_ble_qwr/nrf_ble_qwr.c"
            )
-   
+
+   message(STATUS "Including Common files")  
 
 endmacro(nRF5x_setup)
 
@@ -291,6 +293,8 @@ macro(nRF5x_addAppScheduler)
             "${NRF5_SDK_PATH}/components/libraries/scheduler/app_scheduler.c"
             )
 
+    message(STATUS "Including App Scheduler") 
+
 endmacro(nRF5x_addAppScheduler)
 
 # adds app-level FIFO libraries
@@ -303,6 +307,8 @@ macro(nRF5x_addAppFIFO)
             "${NRF5_SDK_PATH}/components/libraries/fifo/app_fifo.c"
             )
 
+    message(STATUS "Including App Fifo") 
+
 endmacro(nRF5x_addAppFIFO)
 
 # adds app-level Timer libraries
@@ -310,6 +316,7 @@ macro(nRF5x_addAppTimer)
     list(APPEND SDK_SOURCE_FILES
             "${NRF5_SDK_PATH}/components/libraries/timer/app_timer.c"
             )
+    message(STATUS "Including App Timer") 
 endmacro(nRF5x_addAppTimer)
 
 # adds app-level UART libraries
@@ -322,6 +329,8 @@ macro(nRF5x_addAppUART)
             "${NRF5_SDK_PATH}/components/libraries/uart/app_uart_fifo.c"
             )
 
+    message(STATUS "Including App Uart") 
+
 endmacro(nRF5x_addAppUART)
 
 # adds app-level Button library
@@ -333,6 +342,8 @@ macro(nRF5x_addAppButton)
     list(APPEND SDK_SOURCE_FILES
             "${NRF5_SDK_PATH}/components/libraries/button/app_button.c"
             )
+
+    message(STATUS "Including App Button") 
 
 endmacro(nRF5x_addAppButton)
 
@@ -364,6 +375,8 @@ macro(nRF5x_addBSP WITH_BLE_BTN WITH_ANT_BTN WITH_NFC)
                 )
     endif ()
 
+    message(STATUS "Including BSP") 
+
 endmacro(nRF5x_addBSP)
 
 # adds Bluetooth Low Energy GATT support library
@@ -376,6 +389,8 @@ macro(nRF5x_addBLEGATT)
             "${NRF5_SDK_PATH}/components/ble/nrf_ble_gatt/nrf_ble_gatt.c"
             )
 
+    message(STATUS "Including BLE Gatt") 
+
 endmacro(nRF5x_addBLEGATT)
 
 # adds Bluetooth Low Energy advertising support library
@@ -387,6 +402,8 @@ macro(nRF5x_addBLEAdvertising)
     list(APPEND SDK_SOURCE_FILES
             "${NRF5_SDK_PATH}/components/ble/ble_advertising/ble_advertising.c"
             )
+
+    message(STATUS "Including BLE Advertasing") 
 
 endmacro(nRF5x_addBLEAdvertising)
 
@@ -412,6 +429,8 @@ macro(nRF5x_addBLEPeerManager)
             "${NRF5_SDK_PATH}/components/ble/peer_manager/security_manager.c"
     )
 
+    message(STATUS "Including BLE Peer Manager") 
+
 endmacro(nRF5x_addBLEPeerManager)
 
 # adds app-level FDS (flash data storage) library
@@ -428,6 +447,8 @@ macro(nRF5x_addAppFDS)
             "${NRF5_SDK_PATH}/components/libraries/fstorage/nrf_fstorage_sd.c"
             "${NRF5_SDK_PATH}/components/libraries/fstorage/nrf_fstorage_nvmc.c"
     )
+
+    message(STATUS "Including App FDS") 
 
 endmacro(nRF5x_addAppFDS)
 
@@ -467,7 +488,60 @@ macro(nRF5x_addNFC)
             "${NRF5_SDK_PATH}/components/nfc"
             )
 
+    message(STATUS "Including NFC") 
+
 endmacro(nRF5x_addNFC)
+
+macro(nRF5x_addSensorSim)
+    include_directories(
+            "${NRF5_SDK_PATH}/components/libraries/sensorsim"
+    )
+
+    list(APPEND SDK_SOURCE_FILES
+            "${NRF5_SDK_PATH}/components/libraries/sensorsim/sensorsim.c" 
+            )
+
+    message(STATUS "Including SensorSim") 
+
+endmacro(nRF5x_addSensorSim)
+
+macro(nRF5x_addBLEDiscovery)
+    include_directories(
+            "${NRF5_SDK_PATH}/components/ble/ble_db_discovery"
+    )
+
+    list(APPEND SDK_SOURCE_FILES
+            "${NRF5_SDK_PATH}/components/ble/ble_db_discovery/ble_db_discovery.c"
+            )
+    message(STATUS "Including BLE Discovery") 
+
+endmacro(nRF5x_addBLEDiscovery)
+
+macro(nRF5x_addBLEgq)
+    include_directories(
+            "${NRF5_SDK_PATH}/components/ble/nrf_ble_gq"
+    )
+
+    list(APPEND SDK_SOURCE_FILES
+            "${NRF5_SDK_PATH}/components/ble/nrf_ble_gq/nrf_ble_gq.c"
+            )
+
+    message(STATUS "Including BLE gq") 
+
+endmacro(nRF5x_addBLEgq)
+
+macro(nRF5x_addBLEScan)
+    include_directories(
+            "${NRF5_SDK_PATH}/components/ble/nrf_ble_scan"
+    )
+
+    list(APPEND SDK_SOURCE_FILES
+            "${NRF5_SDK_PATH}/components/ble/nrf_ble_scan/nrf_ble_scan.c" 
+            )
+
+    message(STATUS "Including BLE Scan")    
+
+endmacro(nRF5x_addBLEScan)
 
 macro(nRF5x_addBLEService NAME)
     include_directories(
@@ -477,5 +551,14 @@ macro(nRF5x_addBLEService NAME)
     list(APPEND SDK_SOURCE_FILES
             "${NRF5_SDK_PATH}/components/ble/ble_services/${NAME}/${NAME}.c"
             )
+
+    message(STATUS "Including BLE Service: ${NAME}") 
+
+    if(${NAME} STREQUAL "ble_nus")
+    	message(STATUS "Including BLE Service: ${NAME}")
+    	message(STATUS "Setting  NRF_LOG_BACKEND_RTT_ENABLED 	0")
+    	message(STATUS "Setting  BLE_NUS_ENABLED 			1    ")
+    	message(STATUS "Setting  BLE_NUS_CONFIG_LOG_ENABLED		1") 	            
+    endif()
 
 endmacro(nRF5x_addBLEService)
